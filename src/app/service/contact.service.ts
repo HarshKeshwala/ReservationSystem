@@ -23,7 +23,8 @@ export class ContactService {
     addContact(contact: Contact) {
         console.log(contact.birthDate);
         let body = JSON.stringify(contact);
-        let headers = new Headers({'Content-Type': 'appliation/json'});
+        console.log(body);
+        let headers = new Headers({'Content-Type': 'application/json'});
         let options = new RequestOptions({headers: headers});
 
         return this._httpservice.post("http://localhost:8080/ReservationApi/contact", body, options);
@@ -36,6 +37,14 @@ export class ContactService {
     getSingleContact(contactId: string) {
         return this._httpservice.get("http://localhost:8080/ReservationApi/contact/"+contactId)
         .pipe(map(response => response.json()));
+    }
+
+    updateContact(contactId, contact: Contact) {
+        let body = JSON.stringify(contact);
+        let headers = new Headers({'Content-Type': 'application/json'});
+        let options = new RequestOptions({headers: headers});
+
+        return this._httpservice.put("http://localhost:8080/ReservationApi/contact/"+contactId, body, options);
     }
 
 

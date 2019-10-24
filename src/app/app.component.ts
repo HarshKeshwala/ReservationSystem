@@ -23,18 +23,6 @@ export class AppComponent implements OnInit {
   constructor(private _contactService: ContactService, private router: Router){}
 
 
-  getSingleContact(contactId: string) {
-      this._contactService.getSingleContact(contactId)
-        .subscribe(
-            (contact) => {
-                      this.contact = contact;
-                    },
-            (error) => {
-                    console.log(error);
-                  }
-        )
-    }
-
   redirectToAddContact(): void {
     this.router.navigate(['/show']);
   }

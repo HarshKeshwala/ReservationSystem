@@ -1,1 +1,18 @@
 <p>edit-contact works!</p>
+
+<div>
+        <form>
+            <input type="hidden" [(ngModel)] = "contact.contactId" name = "contact.contactId"/>
+            Contact Name: <input type="text" [(ngModel)] = "contact.contactName" name = "contactName"/> <br><br>
+            Contact Type: <input type="text" [(ngModel)] = "contact.contactType" name = "contactType"/> <br><br>
+            Phone Number: <input type="text" [(ngModel)] = "contact.phoneNumber" name = "phoneNumber"/> <br><br>
+            BirthDate:  <input type="date" [(ngModel)] = "contact.birthDate" name = "birthDate"/> <br><br>
+    
+            <button (click)="updateContact(contact.contactId)">Update Contact</button>
+    
+        </form>
+</div>
+    
+<div class="container">
+        <router-outlet></router-outlet>
+</div>

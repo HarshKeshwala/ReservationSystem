@@ -11,8 +11,7 @@ import { Router } from '@angular/router';
 export class AddContactComponent implements OnInit {
 
   contact = new Contact();
-  contacts: Contact[];
-
+  
   constructor(private _contactService: ContactService, private router: Router) { }
 
   ngOnInit() {
@@ -21,7 +20,9 @@ export class AddContactComponent implements OnInit {
   addContact(): void {
     this._contactService.addContact(this.contact)
       .subscribe(
-        (response) => {console.log(response)},
+        (response) => {console.log(response);
+                    this.router.navigate(['/show']);
+                      },
         (error) => {console.log(error);}
       );
   }
