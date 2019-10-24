@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class EditContactComponent implements OnInit {
 
   contact = new Contact();
-  _id: string;
+  _id: string; //variable to store contactId from parameters
 
   constructor(private route: ActivatedRoute, private _contactService: ContactService, private router: Router) { }
 

@@ -1,18 +1,45 @@
-<p>edit-contact works!</p>
-
-<div>
-        <form>
-            <input type="hidden" [(ngModel)] = "contact.contactId" name = "contact.contactId"/>
-            Contact Name: <input type="text" [(ngModel)] = "contact.contactName" name = "contactName"/> <br><br>
-            Contact Type: <input type="text" [(ngModel)] = "contact.contactType" name = "contactType"/> <br><br>
-            Phone Number: <input type="text" [(ngModel)] = "contact.phoneNumber" name = "phoneNumber"/> <br><br>
-            BirthDate:  <input type="date" [(ngModel)] = "contact.birthDate" name = "birthDate"/> <br><br>
-    
-            <button (click)="updateContact(contact.contactId)">Update Contact</button>
-    
-        </form>
-</div>
-    
+<mat-card class="example-card">
+        <h3>Edit Reservation!</h3>
+</mat-card>
+<mat-card class="example-card">
+                <form class="example-form">
+                        <input type="hidden" [(ngModel)] = "contact.contactId" name = "contact.contactId"/>
+                        <p>
+                                <mat-form-field appearance="outline">
+                                        <mat-label>Contact Name</mat-label>
+                                        <input matInput placeholder="Contact Name" [(ngModel)] = "contact.contactName" name = "contactName"/>
+                                </mat-form-field>
+                        </p>
+                        <p>
+                                <mat-form-field appearance="outline">
+                                                <mat-label>Contact Type</mat-label>
+                                                <select matNativeControl required [(ngModel)] = "contact.contactType" name = "contactType">
+                                                        <option value="Type 1">Type 1</option>
+                                                        <option value="Type 2">Type 2</option>
+                                                        <option value="Type 3">Type 3</option>
+                                                </select>
+                                </mat-form-field>
+                        </p>
+                        <p>
+                                <mat-form-field appearance="outline">
+                                        <mat-label>Phone</mat-label>
+                                        <input matInput placeholder="Phone" type="text" [(ngModel)] = "contact.phoneNumber" name = "phoneNumber"/>
+                                </mat-form-field>
+                        </p>
+                        <p>
+        
+                                <mat-form-field appearance="outline">
+                                        <input matInput [matDatepicker]="picker" placeholder="Birthdate" [(ngModel)] = "contact.birthDate" name = "birthDate">
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                        </p>
+                        <p>
+                                <button class="btn btn-primary" (click)="updateContact(contact.contactId)">Update</button>
+                                <a class="btn btn-secondary" [routerLink]="['/show']">Cancel</a>
+                        </p>
+                </form>
+</mat-card>
 <div class="container">
         <router-outlet></router-outlet>
 </div>

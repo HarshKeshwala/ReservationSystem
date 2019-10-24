@@ -13,6 +13,10 @@ import { AddContactComponent } from './components/add-contact/add-contact.compon
 import { EditContactComponent } from './components/edit-contact/edit-contact.component';
 import { ShowContactComponent } from './components/show-contact/show-contact.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatInputModule,MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatDividerModule, MatListModule, MatToolbarModule} from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +33,16 @@ import { ShowContactComponent } from './components/show-contact/show-contact.com
       { path: 'add', component: AddContactComponent },
       { path: 'edit/:contactId', component: EditContactComponent },
       { path: 'show', component: ShowContactComponent}
-    ])
+    ]),
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,      //import for date formating(optional)
+    MatCardModule,
+    MatDividerModule,
+    MatListModule,
+    MatToolbarModule
   ],
   providers: [ContactService],
   bootstrap: [AppComponent]

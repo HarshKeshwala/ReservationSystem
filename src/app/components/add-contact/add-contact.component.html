@@ -1,18 +1,62 @@
-<p>add-contact works!</p>
 
 
-<div>
-        <form>
-            Contact Name: <input type="text" [(ngModel)] = "contact.contactName" name = "contactName"/> <br><br>
-            Contact Type: <input type="text" [(ngModel)] = "contact.contactType" name = "contactType"/> <br><br>
-            Phone Number: <input type="text" [(ngModel)] = "contact.phoneNumber" name = "phoneNumber"/> <br><br>
-            BirthDate:  <input type="date" [(ngModel)] = "contact.birthDate" name = "birthDate"/> <br><br>
-    
-            <button (click)="addContact()">Make a registration</button>
-    
-        </form>
-</div>
-    
+<mat-card class="example-card">
+        <table class="main">
+        <td><h3>Make Reservation!</h3></td>
+         <td><a class="btn btn-secondary" [routerLink]="['/show']">Show All Reservations</a></td>
+    </table>
+</mat-card>
+<form class="example-form">
+<mat-card class="example-card">        
+            
+                <mat-form-field appearance="outline">
+                    <mat-label>Contact Name</mat-label>
+                    <input matInput required placeholder="Contact Name" [(ngModel)] = "contact.contactName" name = "contactName"/>
+                </mat-form-field>
+            
+                <mat-form-field appearance="outline">
+                        <mat-label>Contact Type</mat-label>
+                        <select matNativeControl required [(ngModel)] = "contact.contactType" name = "contactType">
+                            <option value="Type 1">Type 1</option>
+                            <option value="Type 2">Type 2</option>
+                            <option value="Type 3">Type 3</option>
+                        </select>
+                </mat-form-field>
+          
+                <mat-form-field appearance="outline">
+                        <mat-label>Phone</mat-label>
+                    <input matInput placeholder="Phone" type="text" [(ngModel)] = "contact.phoneNumber" name = "phoneNumber"/>
+                </mat-form-field>
+           
+                <mat-form-field appearance="outline">
+                            <mat-label>Birth Date</mat-label>
+                            <input matInput required [matDatepicker]="picker" placeholder="Birth Date" [(ngModel)] = "contact.birthDate" name = "birthDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+</mat-card>
+
+<mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Keep that noise down!</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu" height="400px" width="160px">
+        <mat-card-content>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </mat-card-content>
+</mat-card>
+
+<mat-card>
+        <p >
+                <button class="btn btn-primary" (click)="addContact()">SEND</button>
+        </p>
+</mat-card>
+</form>
 <div class="container">
         <router-outlet></router-outlet>
 </div>
