@@ -1,0 +1,25 @@
+<p>show-contact works!</p>
+
+<div><a [routerLink]="['/add']">Make a reservation</a></div>
+<div>
+        <table>
+            <tr>
+                <th>Contact ID</th>
+                <th>Contact Name</th>
+                <th>Contact Type</th>
+                <th>Phone Number</th>
+                <th>BirthDate</th>
+            </tr>
+    
+            <tr *ngFor = "let contact of contacts">
+                <td>{{contact.contactId}}</td>
+                <td>{{contact.contactName}}</td>
+                <td>{{contact.contactType}}</td>
+                <td>{{contact.phoneNumber}}</td>
+                <td>{{contact.birthDate}}</td>
+                <td><a [routerLink]="['/edit', contact.contactId]">Edit Contact</a></td>
+                <td><button (click) = "deleteContact(contact.contactId)">Delete Contact</button></td>
+            </tr>
+        </table>
+</div>
+

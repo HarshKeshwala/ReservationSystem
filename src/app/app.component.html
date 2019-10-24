@@ -1,37 +1,4 @@
-<div>
-    <form>
-        Contact Name: <input type="text" [(ngModel)] = "contact.contactName" name = "contactName"/> <br><br>
-        Contact Type: <input type="text" [(ngModel)] = "contact.contactType" name = "contactType"/> <br><br>
-        Phone Number: <input type="text" [(ngModel)] = "contact.phoneNumber" name = "phoneNumber"/> <br><br>
-        BirthDate:  <input type="date" [(ngModel)] = "contact.birthDate" name = "birthDate"/> <br><br>
 
-        <button (click)="addContact()">Make a registration</button>
-
-    </form>
-</div>
-
-<div>
-    <table>
-        <tr>
-            <th>Contact ID</th>
-            <th>Contact Name</th>
-            <th>Contact Type</th>
-            <th>Phone Number</th>
-            <th>BirthDate</th>
-        </tr>
-
-        <tr *ngFor = "let contact of contacts">
-            <td>{{contact.contactId}}</td>
-            <td>{{contact.contactName}}</td>
-            <td>{{contact.contactType}}</td>
-            <td>{{contact.phoneNumber}}</td>
-            <td>{{contact.birthDate}}</td>
-            <td><button (click) = "deleteContact(contact.contactId)">Delete Contact</button></td>
-        </tr>
-    </table>
-</div>
-
-<div>
-    <button (click)="redirectToAddContact()">Make a reservation</button>
-    <!-- <a [routerLink]='/add-contact'>Go To Edit</a> -->
-</div>
+<div class="container">
+    <router-outlet></router-outlet>
+  </div>

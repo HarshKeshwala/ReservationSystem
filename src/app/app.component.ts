@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   
   ngOnInit(): void {
-    this.getContacts();
+     this.redirectToAddContact();
   }
   title = 'ReservationApi';
 
@@ -22,35 +22,6 @@ export class AppComponent implements OnInit {
 
   constructor(private _contactService: ContactService, private router: Router){}
 
-  getContacts(): void {
-      this._contactService.getAllContacts()
-      .subscribe((contacts) => {
-          this.contacts = contacts,
-          console.log(contacts)
-      }, (error) => {
-          console.log(error);
-      }) 
-  }
-
-  addContact(): void {
-    this._contactService.addContact(this.contact)
-      .subscribe(
-        (response) => {console.log(response)},
-        (error) => {console.log(error);}
-      );
-  }
-
-  deleteContact(contactId: string) {
-    this._contactService.deleteContact(contactId)
-      .subscribe(
-        (response) => { console.log(response);
-                        this.getContacts();
-                      },
-        (error) => {
-                    console.log(error);
-                  }
-      )
-    }
 
   getSingleContact(contactId: string) {
       this._contactService.getSingleContact(contactId)
@@ -65,7 +36,7 @@ export class AppComponent implements OnInit {
     }
 
   redirectToAddContact(): void {
-    this.router.navigate(['/add-contact']);
+    this.router.navigate(['/show']);
   }
 
 }
