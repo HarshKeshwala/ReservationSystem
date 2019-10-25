@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-import { map } from "rxjs/operators";
+import { map, timeInterval } from "rxjs/operators";
 
 import { Contact } from '../model/ contact';
 
@@ -45,6 +45,11 @@ export class ContactService {
         let options = new RequestOptions({headers: headers});
 
         return this._httpservice.put("http://localhost:8080/ReservationApi/contact/"+contactId, body, options);
+    }
+
+    getContactDetails(contactName: string) {
+        return this._httpservice.get("http://localhost:8080/ReservationApi/contact/detail/"+contactName)
+        .pipe(map(response => response.json()));
     }
 
 

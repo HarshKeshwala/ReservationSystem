@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AddContactComponent implements OnInit {
 
+  _nameValue: string;
+
   contact = new Contact();
   
   constructor(private _contactService: ContactService, private router: Router) { }
@@ -25,5 +27,22 @@ export class AddContactComponent implements OnInit {
                       },
         (error) => {console.log(error);}
       );
+  }
+  onChange(value: string): void {
+      this._nameValue = value;
+      //console.log(this._nameValue);
+  }
+  getContactDetail() {
+    //console.log("Inside .ts Method"+this._nameValue);
+    this._contactService.getContactDetails(this._nameValue)
+      .subscribe(
+            (contact) => {
+                      this.contact = contact;
+                      console.log(contact);
+                    },
+              (error) => {
+                      console.log(error);
+                    }
+      )
   }
 }

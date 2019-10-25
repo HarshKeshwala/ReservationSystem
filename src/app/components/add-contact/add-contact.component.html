@@ -1,5 +1,3 @@
-
-
 <mat-card class="example-card">
         <table class="main">
         <td><h3>Make Reservation!</h3></td>
@@ -7,16 +5,16 @@
     </table>
 </mat-card>
 <form class="example-form">
-<mat-card class="example-card">        
-            
+<mat-card class="example-card">
+
                 <mat-form-field appearance="outline">
                     <mat-label>Contact Name</mat-label>
-                    <input matInput required placeholder="Contact Name" [(ngModel)] = "contact.contactName" name = "contactName"/>
+                    <input matInput required placeholder="Contact Name" [(ngModel)] = "contact.contactName" name = "contactName" (change)="onChange($event.target.value)"/>
                 </mat-form-field>
             
                 <mat-form-field appearance="outline">
                         <mat-label>Contact Type</mat-label>
-                        <select matNativeControl required [(ngModel)] = "contact.contactType" name = "contactType">
+                        <select matNativeControl required [(ngModel)] = "contact.contactType" name = "contactType" (focus)="getContactDetail()">
                             <option value="Type 1">Type 1</option>
                             <option value="Type 2">Type 2</option>
                             <option value="Type 3">Type 3</option>
@@ -25,7 +23,7 @@
           
                 <mat-form-field appearance="outline">
                         <mat-label>Phone</mat-label>
-                    <input matInput placeholder="Phone" type="text" [(ngModel)] = "contact.phoneNumber" name = "phoneNumber"/>
+                    <input matInput (change)="getContactDetail()" placeholder="Phone" type="text" [(ngModel)] = "contact.phoneNumber" name = "phoneNumber" />
                 </mat-form-field>
            
                 <mat-form-field appearance="outline">
@@ -41,16 +39,17 @@
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title>Keep that noise down!</mat-card-title>
         </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu" height="400px" width="160px">
+        <img class="logo" src="assets/piccture.png">
         <mat-card-content>
           <p>
-            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
+                non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </mat-card-content>
 </mat-card>
-
 <mat-card>
         <p >
                 <button class="btn btn-primary" (click)="addContact()">SEND</button>
